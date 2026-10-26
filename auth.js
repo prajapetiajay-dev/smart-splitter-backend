@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User.js');
+const User = require('./User.js');
 const router = express.Router();
 
 // 1. SIGNUP ROUTE (नया अकाउंट बनाने के लिए)
