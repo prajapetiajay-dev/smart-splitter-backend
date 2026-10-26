@@ -13,10 +13,12 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Database Connected Successfully! 🎉'))
   .catch((err) => console.log('Database Connection Error: ', err));
-  // Routes
-app.use('/api/auth', require('./auth.js'));
-app.use('/api/group', require('./group.js'));
-app.use('/api/expense', require('./expense.js'));
+
+// Routes - पक्का करें कि ये बिल्कुल ऐसे ही लिखे हों
+app.use('/api/auth', require('./routes/auth.js'));
+app.use('/api/group', require('./routes/group.js'));
+app.use('/api/expense', require('./routes/expense.js'));
+
 // Basic Test Route
 app.get('/', (req, res) => {
   res.send('Smart Splitter Server is Running! 🚀');
