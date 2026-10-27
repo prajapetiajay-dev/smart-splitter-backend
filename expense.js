@@ -1,6 +1,6 @@
 const express = require('express');
-const Expense = require('../models/Expense');
-const User = require('../models/User');
+const Expense = require('./Expense.js'); // ध्यान दें: आपकी फाइल का नाम Expense.js है (E कैपिटल है)
+const User = require('./User.js');       // आपकी फाइल का नाम User.js है (U कैपिटल है)
 const nodemailer = require('nodemailer');
 const router = express.Router();
 
@@ -35,7 +35,6 @@ router.post('/add', async (req, res) => {
   }
 });
 
-// 2. SEND REMINDER ROUTE (जादुई बटन - दोस्त को फनी ईमेल रिमाइंडर भेजने के लिए)
 router.post('/remind', async (req, res) => {
   try {
     const { friendId, amountOwed, description } = req.body;

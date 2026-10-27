@@ -1,15 +1,15 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User.js');
+const User = require('./User.js'); // क्योंकि User.js और auth.js दोनों एक ही मुख्य फोल्डर में हैं
 const router = express.Router();
 
-// 1. SIGNUP ROUTE (नया अकाउंट बनाने के लिए)
+
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
 
-    // चेक करें कि यूजर पहले से मौजूद तो नहीं है
+    
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ message: 'यह ईमेल पहले से रजिस्टर्ड है!' });

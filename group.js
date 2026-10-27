@@ -1,5 +1,5 @@
 const express = require('express');
-const Group = require('../models/Group');
+const Group = require('./Group.js'); // क्योंकि Group.js और group.js दोनों एक ही मुख्य फोल्डर में हैं
 const router = express.Router();
 
 // 1. CREATE GROUP ROUTE (नया ग्रुप बनाने के लिए)
